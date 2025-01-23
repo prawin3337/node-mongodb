@@ -15,7 +15,7 @@ connectToDb((err) => {
             console.log('App listening on port 3000');
         });
     }
-})
+});
 
 // routes
 app.get('/books', (req, res) => {
@@ -51,8 +51,8 @@ app.get('/books/:id', (req, res) => {
         .then(doc => {
             res.status(200).json(doc)
         })
-        .catch(() => {
-            console.log(err);
+        .catch((error) => {
+            console.log(error);
             res.status(500).json({ error: "Could not fetch the docuemnts." })
         })
 });
@@ -64,8 +64,8 @@ app.post('/books', (req, res) => {
         .then(result => {
             res.status(200).json(result)
         })
-        .catch(() => {
-            console.log(err);
+        .catch((error) => {
+            console.log(error);
             res.status(500).json({ error: "Could not add the docuemnts." })
         })
 });
@@ -82,7 +82,7 @@ app.delete('/books/:id', (req, res) => {
             res.status(200).json(result)
         })
         .catch(() => {
-            console.log(err);
+            console.log(error);
             res.status(500).json({ error: "Could not delete the docuemnts." })
         })
 });
@@ -99,8 +99,8 @@ app.patch('/books/:id', (req, res) => {
         .then((result) => {
             res.status(200).json(result)
         })
-        .catch(() => {
-            console.log(err);
+        .catch((error) => {
+            console.log(error);
             res.status(500).json({ error: "Could not update the docuemnts." })
         })
 })
